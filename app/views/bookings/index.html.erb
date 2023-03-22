@@ -1,0 +1,13 @@
+<h1>Bookings list</h1>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li>
+      <strong>Booking ID:</strong> <%= booking.id %><br>
+      <strong>User:</strong> <%= booking.user.name %><br>
+      <strong>Room:</strong> <%= booking.boat.name %><br>
+      <strong>Check-in Date:</strong> <%= booking.check_in_date.strftime("%m/%d/%Y") %><br>
+      <strong>Check-out Date:</strong> <%= booking.check_out_date.strftime("%m/%d/%Y") %>
+    </li>
+  <% end %>
+</ul>
