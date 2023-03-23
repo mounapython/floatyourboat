@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/show'
-  get 'bookings/edit'
-  get 'bookings/update'
-  get 'bookings/destroy'
-
   devise_for :users
-
-  root to: "pages#home"
+  root "pages#home"
+  resources :bookings
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+
+  get "pages", to: "pages#home"
+
+  resources :boats, only: [:index]
 end
