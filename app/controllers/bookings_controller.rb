@@ -4,64 +4,43 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
   end
-
-
 
   def create
       @booking = Booking.new(booking_params)
 
       if @booking.save
-        redirect_to booking_path(@booking)
+        redirect_to @booking, notice: 'Booking was sucessfully processed'
       else
-
-  end
-
-
-
-
-  def show
+        render :new, status: :unprocessable_entity
   end
 
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    @booking = Booking.find(params[:id])
+      if @booking.update(booking_params)
+        redirect_to @booking
+      else
+        render :edit, status: :unprocessable_entity
   end
 
   def destroy
+    @booking.destroy
+    redirect_to new_booking_path
   end
 end
 
+private
 
-#def create
- # @bookmark = Bookmark.new(bookmark_params)
-  #@bookmark.list = @list
-  #if @bookmark.save
-   # redirect_to list_path(@list)
-  #else
-   # @review = Review.new
-    #render :new, status: :unprocessable_entity
-  #end
-#end
-
-#def destroy
- # @bookmark.destroy
-  #redirect_to list_path(@bookmark.list), status: :see_other
-#end
-
-#private
-
-#def bookmark_params
- # params.require(:bookmark).permit(:comment, :movie_id)
-#end
-
-#def set_bookmark
- # @bookmark = Bookmark.find(params[:id])
-#end
-
-#def set_list
- # @list = List.find(params[:list_id])
-#end
+def booking_params
+  params.require(:booking).permit(:start_date, :end_date)
+end
