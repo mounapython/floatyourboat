@@ -1,1 +1,61 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+
+  font-family: 'Kanit', sans-serif;
+  h1 {
+    margin: 0;
+    background-image: linear-gradient(90deg, #1B065E, #3F88C5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 64px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    font-weight: lighter;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+body{
+  background-image: url("https://cdn.dribbble.com/users/3938430/screenshots/11143981/media/68be19699bf73a071055947356f6899a.gif");
+  background-size: cover;
+  background-position: center;
+
+  font-family: 'Kanit', sans-serif;
+}
+
+.footer {
+  background: transparent;
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 38px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+ color: black;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
