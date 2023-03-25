@@ -20,6 +20,18 @@
   font-family: 'Kanit', sans-serif;
 }
 
+.sub{
+  background-image: linear-gradient(90deg, #3c00ff, #3F88C5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  font-weight: light;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+  font-family: 'Kanit', sans-serif;
+}
+
 .cathegory{
 
   font-weight:500;
