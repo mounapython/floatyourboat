@@ -21,7 +21,7 @@
                       <h1 class="card-text text"><strong><%= boat.name.capitalize %></strong></h1>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-warning">View</button>
+                           <%= link_to "View", boat_path(boat), class:"btn btn-sm btn-outline-warning" %>
                         </div>
                         <small class="text-muted"><%= boat.price %> $ / day</small>
                       </div>
