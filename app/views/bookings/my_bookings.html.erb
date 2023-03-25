@@ -1,0 +1,15 @@
+<p></p>
+
+<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group list-group-flush" style="background-color: #edf5e1">
+        <% @bookings.each do |booking| %>
+          <li class="list-group-item">
+            <%= booking.boat.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

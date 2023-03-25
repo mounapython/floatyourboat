@@ -1,2 +1,5 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for [@boat, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "start" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "end" } } %>
+  <%= f.submit 'Schedule your appointment' %>
+<% end %>

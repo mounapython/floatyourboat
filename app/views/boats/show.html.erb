@@ -3,7 +3,7 @@
     <%= @boat.name.capitalize %>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-outline-warning btn-lg me-md-2" type="button">Book This Boat</button>
+      <%= link_to "Book This Boat !", new_boat_booking_path(@boat), class:"btn btn-outline-warning btn-lg me-md-2" %>
     </div>
   </div>
 </div>
