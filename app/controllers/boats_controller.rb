@@ -8,6 +8,10 @@ class BoatsController < ApplicationController
     @boat.save
   end
 
+  def show
+    @boat = Boat.find(params[:id])
+  end
+
   private
 
   def boat_params

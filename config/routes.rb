@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get "pages", to: "pages#home"
 
-  resources :boats, only: [:index]
+  resources :boats, only: [:index, :show]
 end
