@@ -5,6 +5,7 @@ class Boat < ApplicationRecord
 
   has_many :bookings
   has_many :users, through: :bookings
+  has_many :reviews
 
   include PgSearch::Model
   pg_search_scope :search_by_category,
