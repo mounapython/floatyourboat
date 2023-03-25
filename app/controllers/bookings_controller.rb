@@ -10,15 +10,19 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @boat = Boat.find(params[:boat_id])
   end
 
   def create
       @booking = Booking.new(booking_params)
+      @booking.user = current_user
+      @booking.boat = Boat.find(params[:boat_id])
 
       if @booking.save
-        redirect_to @booking, notice: 'Booking was sucessfully processed'
+        redirect_to boat_path(@booking.boat), notice: 'Booking was sucessfully processed'
       else
         render :new, status: :unprocessable_entity
+      end
   end
 
   def edit
@@ -31,16 +35,23 @@ class BookingsController < ApplicationController
         redirect_to @booking
       else
         render :edit, status: :unprocessable_entity
+      end
   end
 
   def destroy
     @booking.destroy
     redirect_to new_booking_path
   end
-end
 
-private
+  def my_bookings
+    @bookings = Booking.where(user: current_user)
+  end
 
-def booking_params
-  params.require(:booking).permit(:start_date, :end_date)
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
+  end
+
 end
