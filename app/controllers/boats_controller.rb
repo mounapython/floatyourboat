@@ -11,6 +11,7 @@ class BoatsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {boat: boat}),
         marker_html: render_to_string(partial: "marker", locals: {boat: boat})
       }
+    end
   end
 
   def create
