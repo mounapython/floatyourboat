@@ -6,3 +6,36 @@
 
   font-family: 'Kanit', sans-serif;;
 }
+
+.parent {
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+  position: relative;
+  overflow: scroll;
+}
+
+.child1 {
+
+  width: 50%;
+  height: 100%;
+}
+
+.child2 {
+  width: 50%;
+  height: 100vh;
+}
+
+.price-tag {
+  border: 1px solid lightblue;
+  padding: 4px 8px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.mapboxgl-popup-content {
+  h4 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+}
