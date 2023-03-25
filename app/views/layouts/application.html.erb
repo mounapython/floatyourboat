@@ -28,9 +28,20 @@
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+        <div class="row justify-content-center">
+          <div class="col-sm-8 my-3">
+            <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Type a boat category"
+                %>
+              <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+
+
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>

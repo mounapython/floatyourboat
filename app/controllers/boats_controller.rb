@@ -1,6 +1,9 @@
 class BoatsController < ApplicationController
   def index
     @boats= Boat.all
+    if params[:query]
+      @boats = Boat.search_by_category(params[:query])
+    end
   end
 
   def create
