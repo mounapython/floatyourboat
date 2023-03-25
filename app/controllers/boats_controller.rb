@@ -4,6 +4,13 @@ class BoatsController < ApplicationController
     if params[:query]
       @boats = Boat.search_by_category(params[:query])
     end
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {boat: boat}),
+        marker_html: render_to_string(partial: "marker", locals: {boat: boat})
+      }
   end
 
   def create

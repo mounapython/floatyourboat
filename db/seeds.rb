@@ -14,7 +14,7 @@ image1 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat1 = Boat.new(name: "titanic", description: "a British passenger liner, operated by the White Star Line, the largest ship afloat at the time (1912) some say its truly unsinkable", category: "cruise ship",price: 5000, address: "	Southampton, England")
+boat1 = Boat.new(name: "Titanic", description: "a British passenger liner, operated by the White Star Line, the largest ship afloat at the time (1912) some say its truly unsinkable", category: "cruise ship",price: 5000, address: "	Southampton, England")
 boat1.photo.attach(image1)
 boat1.save
 
@@ -25,7 +25,7 @@ image2 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat2 = Boat.new(name: "The Orca", description: "and old yet reliable fishing boat captained by an even more older and reliable captain Quint, sail the seven seas on this rust bucket knowing youll be safe! well only if sharks arent involved", category: "Fishing Boat",price: 150, address: "Amity Island")
+boat2 = Boat.new(name: "Orca", description: "and old yet reliable fishing boat captained by an even more older and reliable captain Quint, sail the seven seas on this rust bucket knowing youll be safe! well only if sharks arent involved", category: "Fishing Boat",price: 150, address: "Amity Island")
 boat2.photo.attach(image2)
 boat2.save
 
@@ -37,7 +37,7 @@ image3 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat3 = Boat.new(name: "The Belfort", description: "ever wanted to feel like a rich, tax dodging, corrupt wall street multi millionaire ? now you can ! with this iconic superyath seized from Jordan Belfort in the 90s", category: "superyath",price: 1500, address: "New York City")
+boat3 = Boat.new(name: "Belfort", description: "ever wanted to feel like a rich, tax dodging, corrupt wall street multi millionaire ? now you can ! with this iconic superyath seized from Jordan Belfort in the 90s", category: "superyath",price: 1500, address: "New York City")
 boat3.photo.attach(image3)
 boat3.save
 
@@ -48,7 +48,7 @@ image4 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat4 = Boat.new(name: "the black pearl", description: "wanna make yourself a reputation and collect riches along the seaven seas ? then this huge 1600s vessal will strike anyone in your path with fear ", category: "Pirate Ship",price: 350, address: "the Caribbean Island")
+boat4 = Boat.new(name: "Pearl", description: "wanna make yourself a reputation and collect riches along the seaven seas ? then this huge 1600s vessal will strike anyone in your path with fear ", category: "Pirate Ship",price: 350, address: "the Caribbean Island")
 boat4.photo.attach(image4)
 boat4.save
 
@@ -59,7 +59,7 @@ image5 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat5 = Boat.new(name: "Flybridge", description: "An enviable combination of class-leading sports looks and performance, with a sporty open flybridge and sports-influenced open cockpit. Compact and incredibly nimble, finely powered and superbly crafted.", category: "Motor Yacht",price: 500, address: "Tampa, Florida")
+boat5 = Boat.new(name: "Belle", description: "An enviable combination of class-leading sports looks and performance, with a sporty open flybridge and sports-influenced open cockpit. Compact and incredibly nimble, finely powered and superbly crafted.", category: "Motor Yacht",price: 500, address: "Tampa, Florida")
 boat5.photo.attach(image5)
 boat5.save
 
@@ -71,6 +71,6 @@ image6 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat6 = Boat.new(name: "Chaparral", description: "a slick and very fast ride sporting an open and spacious cockpit design outfitted with storage", category: "jet boats",price: 250, address: "San Fransico, Florida")
+boat6 = Boat.new(name: "Lyne", description: "a slick and very fast ride sporting an open and spacious cockpit design outfitted with storage", category: "jet boats",price: 250, address: "San Fransico, Florida")
 boat6.photo.attach(image6)
 boat6.save
