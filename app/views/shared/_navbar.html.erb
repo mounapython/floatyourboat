@@ -29,10 +29,16 @@
 
         <div class="text-end">
         <% if user_signed_in? %>
-            <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+            <div class="dropdown-center">
+              <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=2000" style="height:74px;width:90px;" class='btn dropdown-toggle' data-bs-toggle="dropdown" aria-expanded="false">
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><%= link_to "edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li></a></li>
+              </ul>
+            </div>
           <% else %>
-            <%= link_to "Login", new_user_session_path, class: "btn btn-light" %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn btn-warning" %>
           <% end %>
         </div>
       </div>
