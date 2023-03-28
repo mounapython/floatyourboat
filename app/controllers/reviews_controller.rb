@@ -7,9 +7,13 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to boat_path(@review.boat), notice: 'review was sucessfully created'
     else
-      render :new, status: :unprocessable_entity
+      render :new, alert: "Story was successfully destroyed."
+
+
     end
   end
+
+
 
   private
 
