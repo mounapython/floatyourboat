@@ -1,15 +1,26 @@
 <p></p>
 
-<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-  <div class="card">
-    <div class="card-body">
-      <ul class="list-group list-group-flush" style="background-color: #edf5e1">
+<div class="container d-flex justify-content-center">
+     <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">name of the vessel</th>
+            <th scope="col">start date of your booking</th>
+            <th scope="col">end date of your booking</th>
+            <th scope="col">to cancel your booking</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
         <% @bookings.each do |booking| %>
-          <li class="list-group-item">
-            <%= booking.boat.name %>
-          </li>
+          <tr>
+            <td><%= booking.boat.name %></td>
+            <td><%= booking.start_date %></td>
+            <td><%= booking.end_date %></td>
+            <td><%= link_to "Cancel", boat_booking_path(booking.boat, booking),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:'btn btn-outline-danger btn-sm'%></td>
+          </tr>
         <% end %>
-      </ul>
-    </div>
-  </div>
+        </tbody>
+      </table>
 </div>
