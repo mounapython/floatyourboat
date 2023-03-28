@@ -25,22 +25,18 @@
           </div>
         </div>
 
-
-
-        <div class="text-end">
         <% if user_signed_in? %>
-            <div class="dropdown-center">
-              <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=2000" style="height:74px;width:90px;" class='btn dropdown-toggle' data-bs-toggle="dropdown" aria-expanded="false">
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><%= link_to "edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li></a></li>
-              </ul>
+          <span class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", "#", class: "dropdown-item" %>
+              <%= link_to "Settings", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
-          <% else %>
-            <%= link_to "Login", new_user_session_path, class: "btn btn btn-warning" %>
-          <% end %>
-        </div>
+          </span>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-light" %>
+        <% end %>
       </div>
     </div>
   </header>
