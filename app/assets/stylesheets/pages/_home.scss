@@ -19,9 +19,9 @@
   }
   p {
     font-size: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: .7;
-    font-weight: lighter;
+    font-weight: light;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 }
@@ -30,6 +30,8 @@ body{
   background-image: url("https://cdn.dribbble.com/users/3938430/screenshots/11143981/media/68be19699bf73a071055947356f6899a.gif");
   background-size: cover;
   background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
 
   font-family: 'Kanit', sans-serif;
 }
@@ -48,13 +50,13 @@ body{
   align-items: center;
 }
 .footer-links a {
-  color: rgb(255, 255, 255);
+  color: black;
   text-decoration: none;
   font-size: 38px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
- color: black;
+  color: rgb(255, 255, 255);
 }
 .footer .fa-heart {
   color: #D23333;
