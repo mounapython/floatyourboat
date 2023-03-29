@@ -3,7 +3,15 @@ class BoatsController < ApplicationController
     @boats= Boat.all
     if params[:query]
       @boats = Boat.search_by_category(params[:query])
+      scope :search_by_category, ->(category) { where(category: category) if category.present? }
     end
+
+
+
+
+
+
+
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,

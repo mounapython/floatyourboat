@@ -1,43 +1,64 @@
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="text"><strong> BOAT CATALOGUE </strong></h1>
-        <p class="lead text-muted">Here is our featured selection from our wide array of boats.</p>
-      </div>
-    </div>
-</section>
 
 
-<div class='parent'>
-  <div class='child2'>
-    <div class="album py-5">
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
-              <% @boats.each do |boat| %>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="card-img-top" src="<%=cl_image_path boat.photo.key%>"  width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <div class="card-body">
-                      <h1 class="card-text text"><strong><%= boat.name.capitalize %></strong></h1>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                           <%= link_to "View", boat_path(boat), class:"btn btn-sm btn-outline-warning" %>
+
+      <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="text"><strong> BOAT CATALOGUE </strong></h1>
+              <p class="lead text-muted">Here is our featured selection from our wide array of boats.</p>
+            </div>
+          </div>
+      </section>
+
+
+
+
+
+      
+
+
+      <%= form_tag boats_path, method: :get, class: "filter-form" do %>
+        <%= select_tag :category, options_for_select(['All', 'Cruise Ship', 'Fishing Boat', 'Super Yacht', 'Pirate Ship', 'Motor Yacht'], params[:category]), include_blank: true %>
+        <%= submit_tag "Filter" %>
+      <% end %>
+
+
+
+
+
+
+
+      <div class='parent'>
+        <div class='child2'>
+          <div class="album py-5">
+              <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+                    <% @boats.each do |boat| %>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="card-img-top" src="<%=cl_image_path boat.photo.key%>"  width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false">
+                          <div class="card-body">
+                            <h1 class="card-text text"><strong><%= boat.name.capitalize %></strong></h1>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <%= link_to "View", boat_path(boat), class:"btn btn-sm btn-outline-warning" %>
+                              </div>
+                              <small class="text-muted"><%= boat.price %> $ / day</small>
+                            </div>
+                          </div>
                         </div>
-                        <small class="text-muted"><%= boat.price %> $ / day</small>
                       </div>
-                    </div>
-                  </div>
+                    <% end %>
                 </div>
-              <% end %>
+              </div>
           </div>
         </div>
-    </div>
-  </div>
-  <div class='child1'>
-    <div style="width: 100%; height: 100vh;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-</div>
+        <div class='child1'>
+          <div style="width: 100%; height: 100vh;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+
+      </div>

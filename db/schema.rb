@@ -68,10 +68,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_214220) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.string "comment"
-    t.bigint "booking_id", null: false
+    t.bigint "boat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["boat_id"], name: "index_reviews_on_boat_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,5 +92,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_214220) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "boats"
   add_foreign_key "bookings", "users"
-  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "boats"
 end
