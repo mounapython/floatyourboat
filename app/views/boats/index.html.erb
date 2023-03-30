@@ -14,11 +14,11 @@
 
 
 
-      
+
 
 
       <%= form_tag boats_path, method: :get, class: "filter-form" do %>
-        <%= select_tag :category, options_for_select(['All', 'Cruise Ship', 'Fishing Boat', 'Super Yacht', 'Pirate Ship', 'Motor Yacht'], params[:category]), include_blank: true %>
+        <%= select_tag :query, options_for_select(['All', 'Cruise Ship', 'Fishing Boat', 'Super Yacht', 'Pirate Ship', 'Motor Yacht'], params[:query]) %>
         <%= submit_tag "Filter" %>
       <% end %>
 
