@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   has_many :bookings
   has_many :boats, through: :bookings
+  has_one_attached :picture
 end
