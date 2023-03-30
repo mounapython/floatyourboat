@@ -11,17 +11,35 @@
 <p> </p>
 
 <div class="container">
-
   <div id="carouselExample" class="carousel slide position-relative">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="<%=cl_image_path @boat.photo.key%>" class="d-block w-100"  width="100%" height="500" >
+    <div class="d-flex justify-content-between" style="height: 550px">
+      <div class="carousel-inner" style="width: 45%;">
+        <div class="carousel-item active">
+          <img src="<%=cl_image_path @boat.photo.key%>"  style="" class="d-block w-100"  width="100%" height="550" >
+        </div>
+        <div class="carousel-item position-relative">
+          <img src="<%=cl_image_path @boat.photo.key%>" class="d-block w-100"  width="100%" height="550" >
+        </div>
+        <div class="carousel-item position-relative">
+          <img src="<%=cl_image_path @boat.photo.key%>" class="d-block w-100"  width="100%" height="550" >
+        </div>
       </div>
-      <div class="carousel-item position-relative">
-        <img src="<%=cl_image_path @boat.photo.key%>" class="d-block w-100"  width="100%" height="500" >
-      </div>
-      <div class="carousel-item position-relative">
-        <img src="<%=cl_image_path @boat.photo.key%>" class="d-block w-100"  width="100%" height="500" >
+      <div style="width: 55%; background: white; color: black; padding: 8%">
+        <h1 style="font-weight: 700"><%= @boat.name %></h1>
+        <p><%= @boat.description %></p>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-money-bill"></i> <%= @boat.price %>$/ day</p>
+          <p><i class="fa-solid fa-location-dot"></i> <%= @boat.address %></p>
+        </div>
+        <div>
+          <hr>
+          <h4 style="font-weight: 600">Leave a review</h4>
+          <%= simple_form_for [@boat, Review.new] do |f|%>
+            <%= f.input :comment %>
+            <%= f.input :rating %>
+            <%= f.submit "send" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -38,32 +56,12 @@
         <li class="list-group-item cathegory"><%= @boat.category %></li>
       </ul>
     </div>
-
-
-    <div class="card position-absolute bottom-0 start-0">
-      <div class="card-body">
-      <p class='cathegory'><%= @boat.address %> <p>
-      </div>
-    </div>
-
   </div>
 
-  <p> </p>
 
   <div class="card">
-    <div class="card-body cathegory">
-      <strong><%= @boat.description %></strong>
+    <% @reviews.each do |review|%>
+    <%= review.display_rating %>
+    <%= review.comment  %>
+    <% end %>
   </div>
-
-<%= simple_form_for [@boat, Review.new] do |f|%>
-<%= f.input :comment %>
-<%= f.input :rating %>
-<%= f.submit "send" %>
- <% end %>
-
-  <% @reviews.each do |review|%>
-  <%= review.display_rating %>
-  <%= review.comment  %>
-  <% end %>
-
-</div>
