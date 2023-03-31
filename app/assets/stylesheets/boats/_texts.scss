@@ -40,3 +40,16 @@
 
   font-family: 'Kanit', sans-serif;
 }
+
+.titles-sm{
+  background-image: linear-gradient(90deg, #1B065E, #3F88C5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+
+  font-family: 'Kanit', sans-serif;
+}

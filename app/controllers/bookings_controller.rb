@@ -1,18 +1,5 @@
 class BookingsController < ApplicationController
 
-  def index
-    @bookings = Booking.all
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
-  def new
-    @booking = Booking.new
-    @boat = Boat.find(params[:boat_id])
-  end
-
   def create
       @booking = Booking.new(booking_params)
       @booking.user = current_user

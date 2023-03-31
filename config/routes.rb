@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   get "pages", to: "pages#home"
+  get "about", to: "pages#about",as: "about"
+
   get "myBookings", to: "bookings#my_bookings", as: "my_bookings"
 
   resources :boats, only: [:index, :show] do
