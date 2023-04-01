@@ -8,6 +8,8 @@
 
 require "open-uri"
 
+Boat.destroy_all
+
 image1 = ActiveStorage::Blob.create_and_upload!(
   io: URI.open('https://www.cruisehive.com/wp-content/uploads/2022/11/titanic5.jpg'),
   filename: 'example.jpg',
