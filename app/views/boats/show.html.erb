@@ -84,9 +84,12 @@
 <%= f.submit "send" %>
  <% end %>
 
-  <% @reviews.each do |review|%>
-  <%= review.display_rating %>
-  <%= review.comment  %>
+  <% if @reviews.empty? %>
+    <p>This boat does not have reviews yet. Be the first to leave a review.</p>
+  <% else %>
+    <% @reviews.each do |review|%>
+    <%= review.display_rating %>
+    <%= review.comment  %>
+    <% end %>
   <% end %>
-
 </div>

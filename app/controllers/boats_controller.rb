@@ -4,13 +4,6 @@ class BoatsController < ApplicationController
     if params[:query]
       @boats = Boat.search_by_category(params[:query])
     end
-
-
-
-
-
-
-
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
@@ -21,9 +14,18 @@ class BoatsController < ApplicationController
     end
   end
 
+  def new
+    @boat = Boat.new
+  end
+
   def create
     @boat = Boat.new(boat_params)
-    @boat.save
+    if @boat.save
+      redirect_to boat_path(@boat), notice: 'Boat was sucessfully created'
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   end
 
   def show
@@ -35,6 +37,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :category, :price, :photo)
+    params.require(:boat).permit(:name, :description, :category, :price, :address, :photo)
   end
 end
