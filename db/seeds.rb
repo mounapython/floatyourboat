@@ -88,7 +88,7 @@ boat7.save
 
 
 image8 = ActiveStorage::Blob.create_and_upload!(
-  io: URI.open('https://www.alamy.com/luzzu-fishing-boat-in-marsaxlokk-harbour-malta-image245545515.html'),
+  io: URI.open('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTO3wajC5hQvOFeLyyc9Du57db9Jpji6ooK4RGtFz9sLJvZAURr'),
   filename: 'example.jpg',
   content_type: 'image/jpg'
 )

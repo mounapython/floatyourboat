@@ -4,7 +4,7 @@
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button type="button" class="btn btn-outline-warning btn-lg me-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Launch demo modal
+          Book This Boat !
         </button>
 
         <!-- Modal -->
@@ -54,15 +54,31 @@
           <p><i class="fa-solid fa-money-bill"></i> <%= @boat.price %>$/ day</p>
           <p><i class="fa-solid fa-location-dot"></i> <%= @boat.address %></p>
         </div>
-        <div>
+
           <hr>
           <h4 style="font-weight: 600">Leave a review</h4>
-          <%= simple_form_for [@boat, Review.new] do |f|%>
-            <%= f.input :comment %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-            <%= f.submit "send" %>
-          <% end %>
-        </div>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Review
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-weight: 600">Leave a review</h1>
+
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [@boat, Review.new] do |f|%>
+                    <%= f.input :comment %>
+                    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+                    <%= f.submit "send", class:" btn btn-outline-warning" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -78,13 +94,28 @@
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item cathegory"><%= @boat.category %></li>
       </ul>
-    </div>
   </div>
 
+  <div>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Comment</th>
+        <th scope="col">Review</th>
+        <th scope="col">by</th>
+      </tr>
+    </thead>
 
-  <div class="card">
-    <% @reviews.each do |review|%>
-    <%= review.display_rating %>
-    <%= review.comment  %>
-    <% end %>
-  </div>
+    <tbody>
+
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><%= review.comment %></td>
+          <td><%= "#{"⭐" * review.rating}" %></td>
+          <td><%= current_user.first_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
