@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "myBookings", to: "bookings#my_bookings", as: "my_bookings"
 
-  resources :boats, only: [:index, :show] do
+  resources :boats, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:new, :create, :destroy]
     resources :reviews, only: [:new, :create]
   end
