@@ -1,43 +1,46 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://cdn-icons-png.flaticon.com/512/3151/3151027.png" %>
+    <% end %>
 
-  <header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><%= link_to "Home", pages_path, class:"nav-link px-2 text-white" %></li>
-          <li><%= link_to "Selections", boats_path, class:"nav-link px-2 text-white" %></li>
-          <li><%= link_to "Your Bookings", my_bookings_path, class:"nav-link px-2 text-white" %></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-
-        <div class="row justify-content-center">
-          <div class="col-sm-8 my-3">
-            <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
-              <%= text_field_tag :query,
-                    params[:query],
-                    class: "form-control form-control-dark text-bg-dark",
-                    placeholder: "Search..."
-                %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", pages_path, class:"nav-link px-2 text-white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Selections", boats_path, class:"nav-link px-2 text-white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Your Bookings", my_bookings_path, class:"nav-link px-2 text-white" %>
+          </li>
+           <li class="nav-item">
+            <%= link_to "About", about_path, class:"nav-link px-2 text-white" %>
+          </li>
+          <li class="nav-item dropdown">
+            <% if current_user.picture.key %>
+              <%= cl_image_tag current_user.picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://cdn-icons-png.flaticon.com/512/924/924915.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
-          </div>
-        </div>
-
-        <% if user_signed_in? %>
-          <span class="nav-item dropdown dropdown-center">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Settings", "#", class: "dropdown-item" %>
-              <hr class="dropdown-divider">
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
-          </span>
+          </li>
         <% else %>
-          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-warning" %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-warning"%>
+          </li>
         <% end %>
-      </div>
+      </ul>
     </div>
-  </header>
+  </div>
+</div>

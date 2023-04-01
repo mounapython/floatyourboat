@@ -14,4 +14,7 @@ class Boat < ApplicationRecord
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
 
+  scope :search_by_category, ->(category) { where(category: category) if category.present? }
+
+
 end
