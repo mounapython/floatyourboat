@@ -88,3 +88,19 @@
     <%= review.comment  %>
     <% end %>
   </div>
+
+<%= simple_form_for [@boat, Review.new] do |f|%>
+<%= f.input :comment %>
+<%= f.input :rating %>
+<%= f.submit "send" %>
+ <% end %>
+
+  <% if @reviews.empty? %>
+    <p>This boat does not have reviews yet. Be the first to leave a review.</p>
+  <% else %>
+    <% @reviews.each do |review|%>
+    <%= review.display_rating %>
+    <%= review.comment  %>
+    <% end %>
+  <% end %>
+</div>
