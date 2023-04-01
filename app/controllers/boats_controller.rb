@@ -5,12 +5,6 @@ class BoatsController < ApplicationController
       @boats = Boat.search_by_category(params[:query])
     end
 
-
-
-
-
-
-
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
