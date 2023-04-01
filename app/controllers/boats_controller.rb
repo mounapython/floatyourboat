@@ -5,6 +5,16 @@ class BoatsController < ApplicationController
       @boats = Boat.search_by_category(params[:query])
     end
 
+    if params[:query] == "All"
+      @boats = Boat.all
+    else
+      @boats = Boat.search_by_category(params[:query])
+    end
+
+    if @boats.empty?
+      flash.now[:notice] = "No boats found for the selected category."
+    end
+
 
 
 

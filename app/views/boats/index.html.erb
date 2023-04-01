@@ -18,7 +18,7 @@
 
 
       <%= form_tag boats_path, method: :get, class: "filter-form" do %>
-        <%= select_tag :query, options_for_select(['All', 'Cruise Ship', 'Fishing Boat', 'Super Yacht', 'Pirate Ship', 'Motor Yacht'], params[:query]) %>
+        <%= select_tag :query, options_for_select(['All', 'cruise ship', 'Fishing Boat', 'superyath', 'Pirate Ship', 'Motor Yacht'], params[:query]) %>
         <%= submit_tag "Filter" %>
       <% end %>
 
