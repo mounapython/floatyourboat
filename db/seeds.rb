@@ -14,7 +14,7 @@ image1 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat1 = Boat.new(name: "Titanic", description: "a British passenger liner, operated by the White Star Line, the largest ship afloat at the time (1912) some say its truly unsinkable", category: "cruise ship",price: 5000, address: "	Southampton, England")
+boat1 = Boat.new(name: "Titanic", description: "a British passenger liner, operated by the White Star Line, the largest ship afloat at the time (1912) some say its truly unsinkable", category: "Cruise Ship",price: 5000, address: "	Southampton, England")
 boat1.photo.attach(image1)
 boat1.save
 
@@ -37,7 +37,7 @@ image3 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/jpg'
 )
 
-boat3 = Boat.new(name: "Belfort", description: "ever wanted to feel like a rich, tax dodging, corrupt wall street multi millionaire ? now you can ! with this iconic superyath seized from Jordan Belfort in the 90s", category: "superyath",price: 1500, address: "New York City")
+boat3 = Boat.new(name: "Belfort", description: "ever wanted to feel like a rich, tax dodging, corrupt wall street multi millionaire ? now you can ! with this iconic superyath seized from Jordan Belfort in the 90s", category: "Super Yath",price: 1500, address: "New York City")
 boat3.photo.attach(image3)
 boat3.save
 
@@ -74,3 +74,60 @@ image6 = ActiveStorage::Blob.create_and_upload!(
 boat6 = Boat.new(name: "Lyne", description: "a slick and very fast ride sporting an open and spacious cockpit design outfitted with storage", category: "jet boats",price: 250, address: "San Fransico, Florida")
 boat6.photo.attach(image6)
 boat6.save
+
+
+image7 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open('https://upload.wikimedia.org/wikipedia/commons/d/da/Symphmiami.jpg'),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+
+boat7 = Boat.new(name: "Symphony of the Seas", description: "Symphony of the Seas is an Oasis-class cruise ship owned and operated by Royal Caribbean International. She was built in 2018 in the Chantiers de l'Atlantique shipyard in Saint-Nazaire, France, the fourth in Royal Caribbean's Oasis class of cruise ships.", category: "Cruise Ship",price: 2500, address: "Saint-Nazaire, France")
+boat7.photo.attach(image7)
+boat7.save
+
+
+image8 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open('https://www.alamy.com/luzzu-fishing-boat-in-marsaxlokk-harbour-malta-image245545515.html'),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+
+boat8 = Boat.new(name: "Flöka", description: "ship used to catch fish in the sea, or on a lake or river used by traditional Moroocan fishermen on the coast of the Atlantic and Medeteranian", category: "Fishing Boat",price: 150, address: "essaouira, morocco")
+boat8.photo.attach(image8)
+boat8.save
+
+
+image9 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open('https://cdn.boatinternational.com/convert/files/2020/12/59858a70-3bb7-11eb-957a-6996e21593a4-top-25-Azzam-credit-Klaus-Jordan-Lurssen.jpg/r%5Bwidth%5D=1920/59858a70-3bb7-11eb-957a-6996e21593a4-top-25-Azzam-credit-Klaus-Jordan-Lurssen.webp'),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+
+boat9 = Boat.new(name: "Azzam", description: "In October 2013, Lürssen delivered the largest privately owned superyacht in the world in the form Azzam. and it has accommodation for 36 guests and as many as 80 crew members.", category: "Super Yacht",price: 25000, address: "Hamburg Port, germany")
+boat9.photo.attach(image9)
+boat9.save
+
+
+
+image10 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open('https://img.particlenews.com/img/id/06UTRf_0kzUGTqZ00?type=thumbnail_1024x576'),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+
+boat10 = Boat.new(name: "The Flying Dutchman", description: "The Flying Dutchman was a sea captain who once found himself struggling to round the Cape of Good Hope during a ferocious storm. He swore that he would succeed even if he had to sail until Judgment Day. The Devil heard his oath, and took him up on it; the Dutchman was condemned to stay at sea forever.", category: "Pirate Ship",price: 350, address: "Port of Amsterdam, netherland")
+boat10.photo.attach(image10)
+boat10.save
+
+
+
+image11 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open('https://images.boats.com/resize/1/93/98/7989398_20210816075320033_1_XLARGE.jpg?t=1661524140000&w=600&h=600'),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+
+boat11 = Boat.new(name: "VICTORIOUS", description: "VICTORIOUS is a multi-award-winning, feature-packed explorer yacht for sale. She is the recipient of the Robb Report 2022 ‘Best of the Best’ Award and category winner ‘Motor Yacht Over 80 Metres’ at The International Yacht & Aviation Awards 2022.", category: "Motor Yacht",price: 50000, address: "Port of Sydney, australia")
+boat11.photo.attach(image11)
+boat11.save
