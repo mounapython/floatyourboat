@@ -36,7 +36,7 @@
           <h4 style="font-weight: 600">Leave a review</h4>
           <%= simple_form_for [@boat, Review.new] do |f|%>
             <%= f.input :comment %>
-            <%= f.input :rating %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
             <%= f.submit "send" %>
           <% end %>
         </div>
